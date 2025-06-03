@@ -1,46 +1,41 @@
 #include<bits/stdc++.h>
 using namespace std;
-class room
+class Employee
 {
-    public:
-    double length;
-    double breadth;
-    double height;
-    double v,a;
-    double area(void);
-    double volume(void);
-
-    void getdata(double a,double b,double c)
+    double salary;
+    int day;
+public:
+    Employee(double x,int y)
     {
-        length=a;
-        breadth=b;
-        height=c;
+        salary=x;
+        day=y;
     }
-    void putdata(void)
+    void getinfo(double x,int y)
     {
-        cout<<" length= "<<length<<" breadth= "<<breadth<<" height= "<<height<<endl;
+        salary=x;
+        day=y;
+    }
+    Employee(double x)
+    {   salary=x;
+        if(salary<500) salary+=10;
+        cout<<"Salary+10= :"<<salary<<endl;
+    }
+    void Addwork()
+    {
+        if(day>6) salary=salary+(5*(day-6));
+        cout<<"More than 6 hours per day Salary= :"<<salary<<endl;
     }
 };
-double room::area(void)
+int main()
 {
-    return a=length*breadth;
-    //cout<<"area= "<<a<<endl;
-}
-double room::volume(void)
-{
-    return v=length*breadth*height;
-    //cout<<"volume= "<<v<<endl;
-}
-int  main()
-{
-    room r1;
-    double a,b,c;
-    cin>>a>>b>>c;
-    r1.getdata(a,b,c);
-    r1.putdata();
-    double x,y;
-    x=r1.area();
-    y=r1.volume();
-    cout<<"area= "<<x<<"volume= "<<y<<endl;
-    return 0;
+    Employee e1(0,0);
+    cout<<"Enter Salary : ";
+    double a;
+    cin>>a;
+    cout<<"Enter day : ";
+    int b;
+    cin>>b;
+    e1.getinfo(a,b);
+    Employee e2(a);
+    e1.Addwork();
 }
